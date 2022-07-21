@@ -159,6 +159,15 @@ namespace NModbus
             return new ModbusSerialMaster(transport);
         }
 
+        public IModbusMaster CreateAsciiMaster(TcpClient client)
+        {
+            var adapter = new TcpClientAdapter(client);
+
+            var transport = new ModbusIpAsciiTransport(adapter, this, Logger);
+
+            return new ModbusIpMaster(transport);
+        }
+
         public IModbusFunctionService GetFunctionService(byte functionCode)
         {
             return _functionServices.GetValueOrDefault(functionCode);

@@ -1,0 +1,8 @@
+{
+  "solution": {
+    "path": "NModbus.sln",
+    "projects": [
+      "NModbus\\NModbus.csproj"
+    ]
+  }
+}

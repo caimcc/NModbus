@@ -238,7 +238,8 @@ namespace NModbus.IO
                 throw new IOException(msg);
             }
 
-            if (request.SlaveAddress != response.SlaveAddress)
+            // add broadcast address support
+            if (request.SlaveAddress != 0x00 && request.SlaveAddress != response.SlaveAddress)
             {
                 string msg = $"Response slave address does not match request. Expected {request.SlaveAddress}, received {response.SlaveAddress}.";
                 throw new IOException(msg);
